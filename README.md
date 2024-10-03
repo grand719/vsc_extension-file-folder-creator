@@ -1,71 +1,48 @@
-# file-creator README
-
-This is the README for your extension "file-creator". After writing up a brief description, we recommend including the following sections.
+# File/Folder Creator
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Multi-Step Input Flow**: Guide users through a series of prompts to collect information for file creation.
+- **Workspace Folder Selection**: Allows users to select a workspace folder for file creation.
+- **File Name Input**: Prompts users to input the name of the file to be created.
+- **Automatic Directory Creation**: Ensures that necessary directories are created before creating files.
+- **Support for Multiple Files and Folders**: Create multiple files and folders in a specified directory.
 
-For example if there is an image subfolder under your extension project workspace:
+## Usage
 
-\!\[feature X\]\(images/feature-x.png\)
+### Creating Multiple Files
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+To create multiple files, you can specify the file paths separated by commas. For example:
+
+- **Example 1**: Creating multiple files in the same directory: <br>
+```file1.txt, file2.txt, file3.txt```
+> **Note**: Any new file should be separated with comma.
+- **Example 2**: Creating multiple files in different directories. <br>
+```path/to/folder1/file1.txt ; path/to/folder2/file2.txt ; path/to/folder3/file3.txt```
+> **Note**: Any new path should be separated with semicolon.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
-
-## Extension Settings
-
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
-
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+- Visual Studio Code v1.50.0 or higher
+- Node.js v12.0.0 or higher
 
 ## Known Issues
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- None reported at the moment. Please report any issues on the [GitHub repository](https://github.com/grand719/vscode-file-folder-creator).
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
-Initial release of ...
+- Initial release with basic file creation functionality.
 
-### 1.0.1
+## Following Extension Guidelines
 
-Fixed issue #.
+This extension follows the [Visual Studio Code extension guidelines](https://code.visualstudio.com/api/references/extension-guidelines) to ensure a consistent and high-quality user experience.
 
-### 1.1.0
+## For More Information
 
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+- [Visual Studio Code API](https://code.visualstudio.com/api)
+- [Node.js Documentation](https://nodejs.org/en/docs/)
 
 **Enjoy!**
