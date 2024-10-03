@@ -86,8 +86,13 @@ export const prepareFileCreationData = (dataString: string) => {
   for (const data of paths) {
     const splitData = data.split(/\/(?!.*\/)/);
 
+    const isInvalid = splitData.some((value) => value === "");
+
     if (splitData.length !== 2) {
       object["."] = data.split(",");
+    } else if (splitData.length === 2 && isInvalid) {
+      const [key, _value] = data.split(/\/(?!.*\/)/);
+      object[key] = [];
     } else {
       const [key, value] = data.split(/\/(?!.*\/)/);
       object[key] = value.split(",");
@@ -127,6 +132,7 @@ export const createFiles = async (
   data: Record<string, string[]>
 ) => {
   for (const [folder, files] of Object.entries(data)) {
+    console.log(folder, files);
     const folderPath = `${corePath}/${folder === "." ? "" : folder}`;
     try {
       await mkdirAsync(folderPath, { recursive: true });
