@@ -50,7 +50,7 @@ export class FolderSelectionInput {
         .showQuickPick(createQuickPickItems(workspacePaths), {
           placeHolder: "Select the workspace folder",
         })
-        .then((selectedPath) => {
+        .then(selectedPath => {
           this.selectedInitialFolder = selectedPath?.label || "";
           this.initQuickPickInitialState();
         });
@@ -80,7 +80,7 @@ export class FolderSelectionInput {
         this.selectedInitialFolder + "/" + this.folderPath.toString(),
         this.folderPath.length === 0
           ? this.initialPathCreationOptions
-          : this.creationOptions
+          : this.creationOptions,
       );
     } else {
       this.quickPickInstance.items = createQuickPickItems(this.creationOptions);
@@ -114,7 +114,7 @@ export class FolderSelectionInput {
   private onDonePressed = () => {
     this.quickPickInstance.hide();
     this.fileCreationInputInstance.openInput(
-      this.selectedInitialFolder + "/" + this.folderPath.toString()
+      this.selectedInitialFolder + "/" + this.folderPath.toString(),
     );
   };
 

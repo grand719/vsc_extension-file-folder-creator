@@ -54,7 +54,7 @@ export class FileCreationInput {
         createQuickPickItems(workspacePaths),
         {
           placeHolder: "Select the workspace folder",
-        }
+        },
       );
       return selectedPath ? selectedPath.label : undefined;
     } else {
@@ -87,7 +87,7 @@ export class FileCreationInput {
 
     this.inputInstance.busy = true;
     createFiles(this.selectedFolder, data)
-      .catch((error) => {
+      .catch(error => {
         window.showErrorMessage(error.message);
       })
       .then(() => {
@@ -97,6 +97,7 @@ export class FileCreationInput {
         this.inputInstance.busy = false;
       });
   };
+
   private onDidChangeValue = (value: string) => {
     this.inputValue = value;
   };
