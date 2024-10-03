@@ -11,7 +11,7 @@ export const getWorkspacePaths = () => {
     return workspaceFolders[0].uri.fsPath;
   }
 
-  return workspaceFolders.map((folder) => folder.uri.fsPath);
+  return workspaceFolders.map(folder => folder.uri.fsPath);
 };
 
 export const getCurrentPath = () => {
@@ -28,19 +28,19 @@ export const getCurrentPath = () => {
 const getFolderContent = (folderPath: string) => {
   return fs
     .readdirSync(folderPath, { withFileTypes: true })
-    .filter((file) => file.isDirectory())
-    .map((directory) => directory.name);
+    .filter(file => file.isDirectory())
+    .map(directory => directory.name);
 };
 
 export const createQuickPickItems = (folders: string[]) => {
-  return folders.map((folder) => ({
+  return folders.map(folder => ({
     label: folder,
   }));
 };
 
 export const createQuickPickFoldersItems = (
   pathToFolder: string,
-  additionalParams?: string[]
+  additionalParams?: string[],
 ) => {
   const folderContent = [
     ...(additionalParams ? additionalParams : []),
@@ -54,7 +54,7 @@ export class Stack<T> {
 
   constructor(
     initialValues: T[] = [],
-    private overrideToStringFn?: (value: T[]) => string
+    private overrideToStringFn?: (value: T[]) => string,
   ) {
     this.stack.push(...initialValues);
   }
@@ -86,7 +86,7 @@ export const prepareFileCreationData = (dataString: string) => {
   for (const data of paths) {
     const splitData = data.split(/\/(?!.*\/)/);
 
-    const isInvalid = splitData.some((value) => value === "");
+    const isInvalid = splitData.some(value => value === "");
 
     if (splitData.length !== 2) {
       object["."] = data.split(",");
@@ -104,10 +104,10 @@ export const prepareFileCreationData = (dataString: string) => {
 
 const mkdirAsync = (
   path: string,
-  options?: fs.MakeDirectoryOptions | fs.Mode
+  options?: fs.MakeDirectoryOptions | fs.Mode,
 ) => {
   return new Promise((resolve, reject) => {
-    fs.mkdir(path, options, (err) => {
+    fs.mkdir(path, options, err => {
       if (err) {
         reject(err);
       }
@@ -118,7 +118,7 @@ const mkdirAsync = (
 
 const writeFileAsync = (path: string) => {
   return new Promise((resolve, reject) => {
-    fs.writeFile(path, "", (err) => {
+    fs.writeFile(path, "", err => {
       if (err) {
         reject(err);
       }
@@ -129,7 +129,7 @@ const writeFileAsync = (path: string) => {
 
 export const createFiles = async (
   corePath: string,
-  data: Record<string, string[]>
+  data: Record<string, string[]>,
 ) => {
   for (const [folder, files] of Object.entries(data)) {
     console.log(folder, files);
@@ -137,7 +137,7 @@ export const createFiles = async (
     try {
       await mkdirAsync(folderPath, { recursive: true });
       if (files.length !== 0) {
-        const promises = files.map((file) => {
+        const promises = files.map(file => {
           return writeFileAsync(`${folderPath}/${file}`);
         });
 

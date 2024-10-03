@@ -6,7 +6,7 @@ export function activate(context: vscode.ExtensionContext) {
     "file-creator.createInSelectedFolder",
     () => {
       FolderSelectionInput.getInstance();
-    }
+    },
   );
 
   const disposable2 = vscode.commands.registerCommand(
@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
     () => {
       const fileCreationInput = new FileCreationInput();
       fileCreationInput.openInput();
-    }
+    },
   );
 
   context.subscriptions.push(disposable, disposable2);
